@@ -1,0 +1,36 @@
+<%- include('../layout/header') %>
+    <%- include('../layout/navbar') %>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="container mt-5">
+                        <h2>Edit User (
+                            <%= user.name %>)</h2>
+                        <form method="post" class="form-group" action="/update/<%= user._id %>" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" value="<%= user.name %>" placeholder="Enter your name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" value="<%= user.email %>" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" value="<%= user.phone %>" placeholder="Enter your phone number" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Image</label>
+                                <input type="file" class="form-control" id="image" name="image">
+                                <img src="/<%= user.image %>" width='100' class="img-thumbnail mt-1" alt="">
+                            </div>
+                            <input type="hidden" name="old_image" value="<%= user.image %>">
+                            <button type="submit " class="btn btn-success " name="submit">Update User</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('../layout/footer') %>
